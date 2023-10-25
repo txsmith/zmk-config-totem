@@ -7,12 +7,13 @@
 #define SYM  1
 #define NUM  2
 #define NAV  3
+#define DEV  4
 
 #define MULT KP_MULTIPLY
 
 / {
   behaviors {
-    hr: hold-tap {
+    hr: home-row-hold-tap {
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS";
       flavor = "balanced";
@@ -24,6 +25,15 @@
       // hold-trigger-key-positions = <KEYS_R THUMBS>;
       // hold-trigger-on-release; // delay positional check until key-release
     };
+
+    ltq: layer-tap-hold-prefer {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LAYER_TAP_HOLD_PREFERRED";
+      flavor = "hold-preferred";
+      #binding-cells = <2>;
+      tapping-term-ms = <280>;
+      bindings = <&mo>, <&kp>;
+    };
   };
 
   smart_shft: mod-morph {
@@ -34,37 +44,6 @@
     #binding-cells = <0>;
   };
 
-  combos {
-    compatible = "zmk,combos";
-    combo_esc {
-      timeout-ms = <50>;
-      key-positions = <0 1>;
-      bindings = <&kp ESC>;
-    };
-  };
-
-  macros {
-    gif: gif {
-      label = "giphy";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-        = <&macro_press &kp LSHFT>
-        , <&macro_tap &kp N2>
-        , <&macro_release &kp LSHFT>
-        , <&macro_tap &kp G &kp I &kp F>
-        ;
-    };
-  };
-
-// I need the Following keys:
-//  ` ~ _ = " '
-//  cmd + 123
-//  cmd + any symbol
-// 1234567890
-// !@#$%^&*-=`~
-// ()[]{}'"\|_+
-// ←↑↓→
 
 // TODO:
 //  - meh key
@@ -82,7 +61,7 @@
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
      &none       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &none
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                         &kp TAB    &lt NAV SPC &lt NUM RET     &smart_shft &lt SYM ESC  &kp BSPC
+                                         &kp TAB    &lt NAV SPC &lt NUM RET      &kp LSHFT  &ltq SYM ESC  &kp BSPC
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
       >;
     };
@@ -93,9 +72,9 @@
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
                  &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp MULT    &none       &none
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-                 &kp TILDE   &kp MINUS   &kp EQUAL   &kp LPAR    &kp LT          &kp GT      &kp RPAR    &kp DQT     &kp PIPE    &kp BSLH
+                 &kp TILDE   &kp MINUS   &kp EQUAL   &kp LPAR    &kp LT          &kp GT      &kp RPAR    &kp PIPE    &kp SQT     &none
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-     &none       &kp GRAVE   &kp UNDER   &kp PLUS    &kp LBRC    &kp LBKT        &kp RBKT    &kp RBRC    &kp SQT     &none       &none       &none
+     &none       &kp GRAVE   &kp UNDER   &kp PLUS    &kp LBRC    &kp LBKT        &kp RBKT    &kp RBRC    &none       &kp DQT     &kp BSLH    &none
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
                                          &trans      &trans      &trans          &trans      &trans      &trans
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -125,9 +104,24 @@
       label= "NAV";
       bindings = <
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-                 &none       &none       &none       &none       &none           &none       &none       &none       &none       &none 
+                 &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
                  &kp LCTRL   &kp LALT    &kp LGUI    &kp LSHFT   &none           &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none
+// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+     &none       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none       &none
+// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+                                         &trans      &none       &trans           &trans     &mo DEV     &trans
+//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+      >;
+    };
+
+    device_layer {
+      label= "DEV";
+      bindings = <
+//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+                 &kp K_LOCK  &none       &none      &kp C_BRI_UP  &none          &none       &none       &none       &none       &none
+//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+                 &none       &none       &none      &kp C_BRI_DN  &none          &none       &none       &none       &none       &none
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
      &none       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none       &none
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
