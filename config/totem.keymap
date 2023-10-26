@@ -38,10 +38,10 @@
   };
 
 // Issues:
-//  - quotes are akward to reach
+//  ✅ quotes are akward to reach
 //  - cmd+c is hard to reach with one hand
 //  - we have no DEL
-//  - configure MEH
+//  ✅ configure MEH
 //  - cmd+tab and cmd+` is awkward
 //  - we might want to move tab to nother layer as i dont need it that much
 
@@ -69,11 +69,11 @@
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
                  &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp MULT    &none       &none
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-                 &kp TILDE   &kp MINUS   &kp EQUAL   &kp LPAR    &kp LT          &kp GT      &kp RPAR    &kp PIPE    &kp SEMI    &none
+                 &kp TILDE   &kp MINUS   &kp EQUAL   &kp LPAR    &kp LT          &kp GT      &kp RPAR    &kp SEMI    &kp PIPE    &none
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-     &none       &kp GRAVE   &kp UNDER   &kp PLUS    &kp LBRC    &kp LBKT        &kp RBKT    &kp RBRC    &none       &kp COLON   &kp BSLH    &none
+     &none       &kp GRAVE   &kp UNDER   &kp PLUS    &kp LBRC    &kp LBKT        &kp RBKT    &kp RBRC    &kp COLON   &none       &kp BSLH    &none
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                         &trans      &mo DEV      &trans          &trans      &trans      &trans
+                                         &trans      &mo DEV     &trans          &trans      &trans      &trans
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 // !@#$%  ^&*  
 // ~-=(<  >)"|\
