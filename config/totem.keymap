@@ -10,7 +10,7 @@
 #define DEV  4
 
 #define MULT KP_MULTIPLY
-#define MEH LG(LA(LS))
+#define MEH LG(LA(LSHIFT))
 
 / {
   behaviors {
@@ -37,6 +37,15 @@
     };
   };
 
+// Issues:
+//  - quotes are akward to reach
+//  - cmd+c is hard to reach with one hand
+//  - we have no DEL
+//  - configure MEH
+//  - cmd+tab and cmd+` is awkward
+//  - we might want to move tab to nother layer as i dont need it that much
+
+
   keymap {
     compatible = "zmk,keymap";
     base_layer {
@@ -45,24 +54,24 @@
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
                  &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-                &hr LCTRL A  &hr LALT S  &hr LGUI D &hr LSHFT F  &kp G           &kp H      &hr RSHFT J  &hr RGUI K  &hr RALT L  &hr RCTRL SEMI
+                &hr LCTRL A  &hr LALT S  &hr LGUI D &hr LSHFT F  &kp G           &kp H      &hr RSHFT J  &hr RGUI K  &hr RALT L  &hr RCTRL SQT
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
      &kp ESC     &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RET
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                       &ht MEH TAB  &lt NAV SPC  &mo NUM         &kp LSHFT   &sl SYM     &kp BSPC
+                                        &mt MEH TAB &lt NAV SPC  &mo NUM         &kp LSHFT  &ltq SYM ESC &kp BSPC
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
       >;
     };
 
-    sim_layer {
+    sym_layer {
       label= "SYM";
       bindings = <
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
                  &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp MULT    &none       &none
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-                 &kp TILDE   &kp MINUS   &kp EQUAL   &kp LPAR    &kp LT          &kp GT      &kp RPAR    &kp PIPE    &kp SQT     &none
+                 &kp TILDE   &kp MINUS   &kp EQUAL   &kp LPAR    &kp LT          &kp GT      &kp RPAR    &kp PIPE    &kp SEMI    &none
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-     &none       &kp GRAVE   &kp UNDER   &kp PLUS    &kp LBRC    &kp LBKT        &kp RBKT    &kp RBRC    &none       &kp DQT     &kp BSLH    &none
+     &none       &kp GRAVE   &kp UNDER   &kp PLUS    &kp LBRC    &kp LBKT        &kp RBKT    &kp RBRC    &none       &kp COLON   &kp BSLH    &none
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
                                          &trans      &mo DEV      &trans          &trans      &trans      &trans
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
