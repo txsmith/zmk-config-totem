@@ -37,16 +37,28 @@
     // Issues:
     //  - cmd+tab and cmd+` is awkward
 
+    combos {
+        compatible = "zmk,combos";
+
+        paren_r {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 17>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+            timeout-ms = <20>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         base_layer {
             label = "BASE";
             bindings = <
-         &kp Q        &kp W       &kp E                   &kp R        &kp T      &kp Y      &kp U         &kp I       &kp O       &kp P
-         &hr LCTRL A  &hr LALT S  &hr LGUI D              &hr LSHFT F  &kp G      &kp H      &hr RSHFT J   &hr RGUI K  &hr RALT L  &hr RCTRL SQT
-&kp ESC  &kp Z        &kp X       &kp C                   &kp V        &kp B      &kp N      &kp M         &kp COMMA   &kp DOT     &kp FSLH       &kp RET
-                                  &mt LA(LG(LSHIFT)) TAB  &lt 3 SPACE  &mo NUM    &kp LSHFT  &ltq SYM ESC  &kp BSPC
+       &kp Q        &kp W       &kp E                   &kp R        &kp T    &kp Y      &kp U        &kp I       &kp O       &kp P
+       &hr LCTRL A  &hr LALT S  &hr LGUI D              &hr LSHFT F  &kp G    &kp H      &hr RSHFT J  &hr RGUI K  &hr RALT L  &hr RCTRL SQT
+&none  &kp Z        &kp X       &kp C                   &kp V        &kp B    &kp N      &kp M        &kp COMMA   &kp DOT     &kp FSLH       &kp RET
+                                &mt LA(LG(LSHIFT)) TAB  &lt 2 SPACE  &mo 3    &kp LSHFT  &ltq 1 ESC   &kp BSPC
             >;
         };
 
@@ -56,7 +68,17 @@
        &kp EXCL   &kp AT     &kp HASH   &kp DLLR  &kp PRCNT         &kp CARET        &kp AMPS   &kp ASTERISK  &none     &none
        &kp TILDE  &kp MINUS  &kp EQUAL  &kp LPAR  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR   &kp SEMI      &kp PIPE  &kp DQT
 &none  &kp GRAVE  &kp UNDER  &kp PLUS   &kp SEMI  &kp LBKT          &kp RBKT         &kp COLON  &kp COLON     &none     &kp BSLH  &none
-                             &trans     &mo DEV   &trans            &trans           &none      &trans
+                             &trans     &mo 4     &trans            &trans           &none      &trans
+            >;
+        };
+
+        nav_layer {
+            label = "NAV";
+            bindings = <
+       &none      &none      &none      &none      &none     &none     &none     &none    &none      &none
+       &kp LCTRL  &kp LALT   &kp LGUI   &kp LSHFT  &none     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT  &none
+&none  &none      &kp LG(X)  &kp LG(C)  &kp LG(V)  &none     &none     &none     &none    &none      &none  &none
+                             &trans     &none      &trans    &trans    &mo 4     &kp DEL
             >;
         };
 
@@ -67,16 +89,6 @@
        &kp LCTRL  &kp LALT  &kp LGUI  &kp LSHFT  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp N4  &kp N5  &kp N6  &kp ASTERISK
 &none  &none      &none     &none     &none      &none                   &kp DOT                &kp N1  &kp N2  &kp N3  &kp SLASH     &trans
                             &none     &trans     &trans                  &trans                 &kp N0  &trans
-            >;
-        };
-
-        nav_layer {
-            label = "NAV";
-            bindings = <
-       &none      &none      &none      &none      &none     &none     &none     &none    &none      &none
-       &kp LCTRL  &kp LALT   &kp LGUI   &kp LSHFT  &none     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT  &none
-&none  &none      &kp LG(X)  &kp LG(C)  &kp LG(V)  &none     &none     &none     &none    &none      &none  &none
-                             &trans     &none      &trans    &trans    &mo DEV   &kp DEL
             >;
         };
 
