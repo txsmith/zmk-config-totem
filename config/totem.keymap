@@ -38,6 +38,30 @@
     combos {
         compatible = "zmk,combos";
 
+        paren_l {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <12 13>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+            timeout-ms = <20>;
+        };
+
+        brace_l {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <13 14>;
+            timeout-ms = <20>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+        };
+
+        bracket_l {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <24 25>;
+            timeout-ms = <20>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+        };
+
         paren_r {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <16 17>;
