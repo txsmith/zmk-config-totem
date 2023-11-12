@@ -54,7 +54,6 @@
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <12 13>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -63,7 +62,6 @@
             key-positions = <13 14>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         bracket_l {
@@ -71,14 +69,12 @@
             key-positions = <24 25>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         paren_r {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <16 17>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -87,7 +83,6 @@
             key-positions = <16 15>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         bracket_r {
@@ -95,7 +90,6 @@
             key-positions = <26 27>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         semi {
@@ -103,14 +97,12 @@
             key-positions = <27 28>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         excl {
             bindings = <&kp EXCL>;
             key-positions = <0 1>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <30>;
         };
 
@@ -118,7 +110,6 @@
             bindings = <&kp AT>;
             key-positions = <1 2>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -126,7 +117,6 @@
             bindings = <&kp HASH>;
             key-positions = <2 3>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -134,7 +124,6 @@
             bindings = <&kp DOLLAR>;
             key-positions = <3 4>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -142,7 +131,6 @@
             bindings = <&kp PERCENT>;
             key-positions = <5 6>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -150,7 +138,6 @@
             bindings = <&kp CARET>;
             key-positions = <6 7>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -158,7 +145,6 @@
             bindings = <&kp AMPS>;
             key-positions = <7 8>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <20>;
         };
 
@@ -166,7 +152,6 @@
             bindings = <&kp ASTERISK>;
             key-positions = <8 9>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
             timeout-ms = <30>;
         };
 
@@ -175,7 +160,6 @@
             key-positions = <23 24>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         equal {
@@ -183,7 +167,6 @@
             key-positions = <23 22>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         backtick {
@@ -191,7 +174,6 @@
             key-positions = <21 22>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
 
         backtick2 {
@@ -199,7 +181,6 @@
             key-positions = <11 12>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
         };
     };
 
