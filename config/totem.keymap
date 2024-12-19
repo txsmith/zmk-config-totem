@@ -50,6 +50,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        jk-enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
